@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="true">
+<!--  获取初始化参数-->
+  <context-param>
+    <param-name>dataSource</param-name>
+    <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
+  </context-param>
+<!--  设置-->
+  <servlet>
+    <servlet-name>set</servlet-name>
+    <servlet-class>top.yxp2918.servlet.ServletSet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>set</servlet-name>
+    <url-pattern>/set</url-pattern>
+  </servlet-mapping>
+  
+<!--  查找-->
+  <servlet>
+    <servlet-name>get</servlet-name>
+    <servlet-class>top.yxp2918.servlet.ServletGet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>get</servlet-name>
+    <url-pattern>/get</url-pattern>
+  </servlet-mapping>
+<!--  转发到的页面-->
+  <servlet>
+    <servlet-name>launch</servlet-name>
+    <servlet-class>top.yxp2918.servlet.ServletLaunch</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>launch</servlet-name>
+    <url-pattern>/launch</url-pattern>
+  </servlet-mapping>
+  
+<!--  404-->
+  <servlet>
+    <servlet-name>404</servlet-name>
+    <servlet-class>top.yxp2918.servlet.Servlet404</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>404</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+</web-app>
